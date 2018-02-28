@@ -30,7 +30,19 @@ config.appKey = @“ADHOC_xxx”;
 
 ### Android SDK 初始化
 
-[Undo]
+在Application的onCreate方法中初始化原生SDK
+
+```
+AdhocConfig adhocConfig = new AdhocConfig.Builder()
+        //设置App上下文(必要参数)
+        .context(this)
+        //设置Appkey(必要参数)
+        .appKey(key)
+        //全部配置参考官网
+        .build();
+
+AdhocTracker.init(adhocConfig);
+```
 
 ## API
 
