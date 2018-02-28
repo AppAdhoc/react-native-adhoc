@@ -4,28 +4,21 @@ package com.appadhoc.module;
  * Created by dongyuangui on 2018/2/26.
  */
 
-import android.telecom.Call;
-
 import com.adhoc.adhocsdk.AdhocTracker;
 import com.adhoc.adhocsdk.ExperimentFlags;
 import com.adhoc.adhocsdk.OnAdHocReceivedData;
-import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Callback;
-import com.facebook.react.bridge.JavaOnlyMap;
-import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableType;
-import com.facebook.react.bridge.WritableMap;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class AppadhocModule extends ReactContextBaseJavaModule {
-
 
     public AppadhocModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -33,35 +26,29 @@ public class AppadhocModule extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-        return "AdhocAndroid";
+        return "RNAdhoc";
     }
 
     @ReactMethod
-    public void getFlag(String name, boolean t, Promise promise) {
-        WritableMap map = Arguments.createMap();
+    public void getBooleanFlag(String name, boolean t, Callback callback) {
         boolean result = AdhocTracker.getFlag(name, t);
-        map.putBoolean(name, result);
-        promise.resolve(map);
+        callback.invoke(result);
     }
 
     @ReactMethod
-    public void getFlag(String name, double t, Promise promise) {
-        WritableMap map = Arguments.createMap();
+    public void getNumberFlag(String name, double t, Callback callback) {
         double result = AdhocTracker.getFlag(name, t);
-        map.putDouble(name, result);
-        promise.resolve(map);
+        callback.invoke(result);
     }
 
     @ReactMethod
-    public void getFlag(String name, String t, Promise promise) {
-        WritableMap map = Arguments.createMap();
+    public void getStringFlag(String name, String t, Callback callback) {
         String result = AdhocTracker.getFlag(name, t);
-        map.putString(name, result);
-        promise.resolve(map);
+        callback.invoke(result);
     }
 
     @ReactMethod
-    public void track_ok(String var0, double var1, ReadableMap var2) {
+    public void trackWithAttribute(String var0, double var1, ReadableMap var2) {
         HashMap map = (HashMap) convert2hashMap(var2);
         AdhocTracker.track(var0, var1, map);
     }
@@ -72,30 +59,45 @@ public class AppadhocModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void trackPageView() {
+        AdhocTracker.trackPageView();
+    }
+
+    @ReactMethod
     public void getCurrentExperiments(Callback callback) {
         callback.invoke(AdhocTracker.getCurrentExperiments().toString());
-//        callback.invoke("sadfasdf");
     }
 
     @ReactMethod
-    public void asyncGetFlag_t(int timeOut, final Callback callback) {
-        AdhocTracker.asyncGetFlag(timeOut, new OnAdHocReceivedData() {
-            @Override
-            public void onReceivedData(ExperimentFlags experimentFlags) {
-                callback.invoke(experimentFlags.getRawFlags().toString());
-            }
-        });
-    }
-
-    @ReactMethod
-    public void asyncGetFlag(final Callback callback) {
+    public void asynchronousGetStringFlag(final String key, final String defaultValue, final Callback callback) {
         AdhocTracker.asyncGetFlag(new OnAdHocReceivedData() {
             @Override
             public void onReceivedData(ExperimentFlags experimentFlags) {
-                callback.invoke(experimentFlags.getRawFlags().toString());
+                callback.invoke(experimentFlags.getFlag(key, defaultValue));
             }
         });
     }
+
+    @ReactMethod
+    public void asynchronousGetBooleanFlag(final String key, final boolean defaultValue, final Callback callback) {
+        AdhocTracker.asyncGetFlag(new OnAdHocReceivedData() {
+            @Override
+            public void onReceivedData(ExperimentFlags experimentFlags) {
+                callback.invoke(experimentFlags.getFlag(key, defaultValue));
+            }
+        });
+    }
+
+    @ReactMethod
+    public void asynchronousGetNumberFlag(final String key, final double defaultValue, final Callback callback) {
+        AdhocTracker.asyncGetFlag(new OnAdHocReceivedData() {
+            @Override
+            public void onReceivedData(ExperimentFlags experimentFlags) {
+                callback.invoke(experimentFlags.getFlag(key, defaultValue));
+            }
+        });
+    }
+
 
     @ReactMethod
     public void getClientId(final Callback callback) {

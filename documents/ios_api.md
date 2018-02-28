@@ -11,7 +11,7 @@ import  AdhocSDK  from 'react-native-adhoc'
 
 #### API
 
-- getFlag(String, Number, Function)
+- getFlag(String, Any, Function)
 
   获取后台设置的指定的实验变量的值，实验变量的名字注意与后台保持一致
   
@@ -65,7 +65,7 @@ import  AdhocSDK  from 'react-native-adhoc'
   });
   ```
 
-- asynchronousGetFlag(String, Object, Number, Function)
+- asynchronousGetFlag(String, Any, Number, Function)
 
   异步方式从服务器直接获取实验变量的值
   

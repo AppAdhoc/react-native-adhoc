@@ -11,12 +11,30 @@ import  AdhocSDK  from 'react-native-adhoc'
 
 #### API
 
-- getFlag(String, Number, Function)
+- getNumberFlag(String, Number, Function)
 
-  获取后台设置的指定的实验变量的值，实验变量的名字注意与后台保持一致
+  获取后台设置的指定的Number类型实验变量的值，实验变量的名字注意与后台保持一致，Number为默认值参数
   
   ```
-  AdhocSDK.getFlag('flag_nameXXX', 7, flagValue => {
+  AdhocSDK.getNumberFlag('flag_nameXXX', 7, flagValue => {
+  
+  });
+  ```
+- getBooleanFlag(String, boolean, Function)
+
+  获取后台设置的指定的Boolean类型实验变量的值，实验变量的名字注意与后台保持一致，boolean为默认值参数
+  
+  ```
+  AdhocSDK.getBooleanFlag('flag_nameXXX', false, flagValue => {
+  
+  });
+  ```
+- getStringFlag(String, String, Function)
+
+  获取后台设置的指定的字符串类型实验变量的值，实验变量的名字注意与后台保持一致，String为默认值参数
+  
+  ```
+  AdhocSDK.getStringFlag('flag_nameXXX', 'default_stringXXX', flagValue => {
   
   });
   ```
@@ -47,7 +65,7 @@ import  AdhocSDK  from 'react-native-adhoc'
  
 - getCurrentExperiments(Function)
 
-  获取当前设备所在实验的实验名列表
+  获取当前设备所在实验的实验名称和试验ID列表
   
   ```
   AdhocSDK.getCurrentExperiments(experiments => {
@@ -55,15 +73,6 @@ import  AdhocSDK  from 'react-native-adhoc'
   });
   ```
   
-- getCurrentExperimentsAndExperimentsID(Function)
-
-  获取当前设备所在实验的实验名列表和实验ID
-  
-   ```
-  AdhocSDK.getCurrentExperimentsAndExperimentsID(experiments => {
-  
-  });
-  ```
 - getClientId(Function)
 
   获取当前设备所在实验的实验名列表和实验ID
@@ -73,12 +82,30 @@ import  AdhocSDK  from 'react-native-adhoc'
   
   });
   ```
-- asynchronousGetFlag(String, Object, Number, Function)
+- asynchronousGetNumberFlag(String, Number, Function)
 
-  异步方式从服务器直接获取实验变量的值
+  异步方式从服务器直接获取Number类型实验变量的值
   
   ```
-  AdhocSDK.asynchronousGetFlag('flagName', 'defaultValue', 10, flagValue => {
+  AdhocSDK.asynchronousGetNumberFlag('flagName', 10, flagValue => {
+  
+  });
+  ```
+- asynchronousGetStringFlag(String, String, Function)
+
+  异步方式从服务器直接获取字符串类型实验变量的值
+  
+  ```
+  AdhocSDK.asynchronousGetStringFlag('flagName', 'default_stringXXX', flagValue => {
+  
+  });
+  ```
+- asynchronousGetBooleanFlag(String, boolean, Function)
+
+  异步方式从服务器直接获取Bool类型实验变量的值
+  
+  ```
+  AdhocSDK.asynchronousGetBooleanFlag('flagName', false, flagValue => {
   
   });
   ```
