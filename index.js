@@ -3,6 +3,33 @@ const RNAdhoc = NativeModules.RNAdhoc;
 
 export default class AdhocSDK {
 
+  /**
+   * Android Only
+   */
+  static getNumberFlag(flagName, defaultNumber, callback) {
+     RNAdhoc.getFlag(flagName, defaultNumber, (flagValue) => {
+      callback(flagValue);
+    })
+  }
+  /**
+   * Android Only
+   */
+  static getStringFlag(flagName, defaultString, callback) {
+     RNAdhoc.getFlag(flagName, defaultString, (flagValue) => {
+      callback(flagValue);
+    })
+  }
+  /**
+   * Android Only
+   */
+  static getBooleanFlag(flagName, defaultBooleanValue, callback) {
+     RNAdhoc.getFlag(flagName, defaultBooleanValue, (flagValue) => {
+      callback(flagValue);
+    })
+  }
+  /**
+   * iOS Only
+   */
   static getFlag(flagName, defaultValue, callback) {
      RNAdhoc.getFlag(flagName, defaultValue, (error, flagValue) => {
       if (error) {
@@ -34,27 +61,51 @@ export default class AdhocSDK {
       }
     });
   }
-
-  static getCurrentExperimentsAndExperimentsID(callback) {
-    RNAdhoc.getCurrentExperimentsAndExperimentsID((error, experiments) => {
-      if (error) {
-        console.error(error);
-      } else {
-        callback(experiments);
-      }
-    });
-  }
-  
+  /**
+   * iOS only
+   */
   static asynchronousGetFlag(flagName, defaultValue, timeout, callback) {
-    RNAdhoc.asynchronousGetFlag(flagName, defaultValue, timeout, (error, value) => {
+    RNAdhoc.asynchronousGetFlag(flagName, defaultValue, timeout, (error, flagValue) => {
       if (error) {
         console.error(error);
       } else {
-        callback({flagValue: value});
+        callback(flagValue);
       }
     });
   }
+  /**
+   * android only
+   */
+  static asynchronousGetNumberFlag(flagName, defaultNumberValue, callback) {
+    RNAdhoc.asynchronousGetFlag(flagName, defaultNumberValue, (value) => {
+     
+        callback(value);
+      
+    });
+  }
+  /**
+   * android only
+   */
+  static asynchronousGetBooleanFlag(flagName, defaultBooleanValue, callback) {
+    RNAdhoc.asynchronousGetFlag(flagName, defaultBooleanValue, (value) => {
+      
+        callback(value);
+      
+    });
+  }
+  /**
+   * android only
+   */
+  static asynchronousGetStringFlag(flagName, defaultStringValue, callback) {
+    RNAdhoc.asynchronousGetFlag(flagName, defaultStringValue, (value) => {
 
+        callback(value);
+
+    });
+  }
+  /**
+   * iOS only
+   */
   static handleWebViewMessage(webView, msg) {
     var isHaveAdhocMsg = msg.indexOf("adhoc");
     if (isHaveAdhocMsg == 0) { // 以 adhoc 开头
