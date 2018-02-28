@@ -1,0 +1,25 @@
+{
+  "name": "react-native-adhoc",
+  "version": "0.0.1",
+  "description": "AdhocSDK for react native application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AppAdhoc/react-native-adhoc.git"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "adhoc",
+    "adhocsdk"
+  ],
+  "author": "AppAdhoc Technology Co.Ltd.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AppAdhoc/react-native-adhoc/issues"
+  },
+  "homepage": "https://github.com/AppAdhoc/react-native-adhoc#readme"
+}
