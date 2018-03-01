@@ -1,0 +1,3 @@
+rootProject.name = 'AdhocDemo'
+
+include ':app'

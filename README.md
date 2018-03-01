@@ -25,6 +25,7 @@ react-native link
 ```
 AdhocSDKConfig *config = [AdhocSDKConfig defaultConfig];
 config.appKey = @“ADHOC_xxx”;
+config.debugAssistiveShow = YES;
 [AdhocSDK startWithConfigure:config options:launchOptions];
 ```
 
