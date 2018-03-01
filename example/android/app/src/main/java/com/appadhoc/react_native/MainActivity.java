@@ -1,4 +1,4 @@
-package com.adhocdemo;
+package com.appadhoc.react_native;
 
 import com.facebook.react.ReactActivity;
 

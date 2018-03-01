@@ -73,7 +73,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    entryFile: "index.js"
+        entryFile: "index.js"
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -92,17 +92,22 @@ def enableSeparateBuildPerCPUArchitecture = false
  * Run Proguard to shrink the Java bytecode in release builds.
  */
 def enableProguardInReleaseBuilds = false
-
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.adhocdemo"
+        applicationId "com.awesometestrn"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -126,7 +131,7 @@ android {
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
             // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
-            def versionCodes = ["armeabi-v7a":1, "x86":2]
+            def versionCodes = ["armeabi-v7a": 1, "x86": 2]
             def abi = output.getFilter(OutputFile.ABI)
             if (abi != null) {  // null for the universal-debug, universal-release variants
                 output.versionCodeOverride =
@@ -137,9 +142,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:23.0.1"
-    compile "com.facebook.react:react-native:+"  // From node_modules
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.facebook.react:react-native:+'
+    compile 'com.appadhoc:abtest:latest.release'
 }
 
 // Run this once to be able to run the application with BUCK
