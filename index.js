@@ -103,6 +103,7 @@ export default class AdhocSDK {
 
     });
   }
+
   /**
    * iOS only
    */
