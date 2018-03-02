@@ -19,32 +19,69 @@ import {
 type Props = {};
 export default class App extends Component<Props> {
   render() {
-    return (
-      <View style={styles.container}>
+    let platformContent;
+    if (Platform.OS === 'android') {
+      
+      platformContent = (
+        <View style={styles.container}>
+        
+        
+        <Button onPress={this._onPressButton} title="点击track"/>
+      
+
+      
+        <Button onPress={this._onPressGetCurrentExperiments} title="当前进入试验信息" />
+      
+      
+        <Button onPress={this._onPresstest} title="异步获取一次变量boolean接口asynGetFlag" />
+      
+        <Button onPress={this._onPressButtonGetAsynStringFlag} title="异步获取一次变量string接口asynGetFlag"/>
+      
+        <Button  onPress={this._onPressButtonGetAsynNumberFlag} title="异步获取一次变量number接口asynGetFlag"/>
+
+        <Button onPress={this._onPressButtonGetFlagString} title="获取变量值(String)"/>
+      
+
+      
+        <Button onPress={this._onPressButtonGetFlagNumber} title="获取变量值(number)"/>
+      
+   
+        <Button onPress={this._onPressButtonGetFlagBoolean} title="获取变量值(boolean)"/>
+      
+
+        <Button onPress={this._onPressButtonGetClientId} title="获取clientId" />
+      
+      </View>
+      )
+    } else {
+      platformContent = (
+        <View style={styles.container}>
         <Button
           onPress={this.onButtonPressForGetFlag}
-          title="Get Flag"
-        />
+          title="Get Flag"/>
         <Button
           onPress={this.onButtonPressForAsyGetFlag}
-          title="Asynchronous Get Flag"
-        />
+          title="Asynchronous Get Flag"/>
         <Button
           onPress={this.onButtonPressForTrack}
-          title="Track"
-        />
+          title="Track"/>
         <Button
           onPress={this.onButtonPressForTrackWithAttribute}
-          title="Track With Attribute"
-        />
+          title="Track With Attribute"/>
         <Button
           onPress={this.onButtonPressForTrackPageView}
-          title="Track PageView"
-        />
+          title="Track PageView"/>
         <Button
           onPress={this.onButtonPressForCurrentExperiments}
-          title="Experiments"
-        />
+          title="Experiments"/>
+      </View>)
+    }
+
+
+    return (
+      <View style={styles.container}>
+
+      {platformContent}
       </View>
     );
   }
@@ -55,7 +92,7 @@ export default class App extends Component<Props> {
         'Adhoc Alert',
         flagValue.toString(),
         [
-          {text: 'OK', onPress: () => console.log('OK Pressed!')},
+          {Button: 'OK', onPress: () => console.log('OK Pressed!')},
         ]
       );
     });
@@ -67,7 +104,7 @@ export default class App extends Component<Props> {
         'Adhoc Alert',
         flagValue.toString(),
         [
-          {text: 'OK', onPress: () => console.log('OK Pressed!')},
+          {Button: 'OK', onPress: () => console.log('OK Pressed!')},
         ]
       );
     });
@@ -80,7 +117,7 @@ export default class App extends Component<Props> {
       'Adhoc Alert',
       '已 Track',
       [
-        {text: 'OK', onPress: () => console.log('OK Pressed!')},
+        {Button: 'OK', onPress: () => console.log('OK Pressed!')},
       ]
     );
   }
@@ -92,7 +129,7 @@ export default class App extends Component<Props> {
       'Adhoc Alert',
       '已 Track With Attribute',
       [
-        {text: 'OK', onPress: () => console.log('OK Pressed!')},
+        {Button: 'OK', onPress: () => console.log('OK Pressed!')},
       ]
     );
   }
@@ -104,7 +141,7 @@ export default class App extends Component<Props> {
       'Adhoc Alert',
       '已 Track Page View',
       [
-        {text: 'OK', onPress: () => console.log('OK Pressed!')},
+        {Button: 'OK', onPress: () => console.log('OK Pressed!')},
       ]
     );
   }
@@ -114,11 +151,74 @@ export default class App extends Component<Props> {
       var jsonStr = JSON.stringify(experiments);
 
       Alert.alert('Adhoc Alert', jsonStr,[
-          {text: 'OK', onPress: () => console.log('OK Pressed!')},
+          {Button: 'OK', onPress: () => console.log('OK Pressed!')},
         ]
       );
     });
   }
+  _onPressButton() {
+    AdhocSDK.track('flag_rn_click', 1);
+    
+    
+  }
+
+    _onPressButtonGetAsynBooleanFlag() {
+    
+    AdhocSDK.asynchronousGetBooleanFlag('flag_bool',false,(callback) => {
+      alert(callback);
+    })}
+
+_onPresstest() {
+    
+    AdhocSDK.asynchronousGetBooleanFlag('flag_bool',false,(callback) => {
+      alert(callback);
+    })}
+    _onPressButtonGetAsynNumberFlag() {
+    
+    AdhocSDK.asynchronousGetNumberFlag('flag_int',6,(callback) => {
+      alert(callback);
+    })}
+
+
+
+    _onPressButtonGetAsynStringFlag() {
+    
+    AdhocSDK.asynchronousGetStringFlag('flag_string','h',(callback) => {
+      alert(callback);
+    })}
+
+
+
+
+    _onPressButtonGetFlagBoolean() {
+    
+    AdhocSDK.getBooleanFlag("flag_bool",false,callback =>{
+      alert(callback);
+    })}
+_onPressButtonGetFlagString() {
+    
+    AdhocSDK.getStringFlag("flag_string","h",callback =>{
+      alert(callback);
+    })}
+    _onPressButtonGetFlagNumber() {
+    
+    AdhocSDK.getNumberFlag("flag_int",1,callback =>{
+      alert(callback);
+    })}
+  
+  _onPressButtonGetClientId() {
+    
+    AdhocSDK.getClientId((clientId) => {
+    alert(clientId);
+  })}
+
+
+    _onPressGetCurrentExperiments() {
+    
+    AdhocSDK.getCurrentExperiments((value) => {
+    alert(value);
+  })
+    }
 }
 
 const styles = StyleSheet.create({
@@ -127,15 +227,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });

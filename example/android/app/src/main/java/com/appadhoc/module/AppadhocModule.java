@@ -37,7 +37,7 @@ public class AppadhocModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void getNumberFlag(String name, double t, Callback callback) {
-        double result = AdhocTracker.getFlag(name, t);
+        Number result = AdhocTracker.getFlag(name, t);
         callback.invoke(result);
     }
 
@@ -65,7 +65,7 @@ public class AppadhocModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void getCurrentExperiments(Callback callback) {
-        callback.invoke(AdhocTracker.getCurrentExperiments().toString());
+        callback.invoke(null, AdhocTracker.getCurrentExperiments().toString());
     }
 
     @ReactMethod
