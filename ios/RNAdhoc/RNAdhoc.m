@@ -20,6 +20,17 @@ RCT_EXPORT_METHOD(getFlag:(NSString *)flag_name default:(id)default_value callba
     callback(@[[NSNull null], flagValue]);
 }
 
+RCT_EXPORT_METHOD(asynchronousGetFlag:(NSString *)flag_name defaultValue:(id)default_value timeoutInterval:(NSTimeInterval)timeout completionHandler:(RCTResponseSenderBlock)callback) {
+    [AdhocSDK asynchronousGetFlag:flag_name defaultValue:default_value timeoutInterval:timeout completionHandler:^(id flag_value, NSError *error) {
+        if (error) {
+            NSArray *array = @[RCTJSErrorFromNSError(error), flag_value];
+            callback(array);
+        } else {
+            callback(@[[NSNull null], flag_value]);
+        }
+    }];
+}
+
 RCT_EXPORT_METHOD(track:(NSString *)stat_name value:(nonnull NSNumber *)stat_value) {
     [AdhocSDK track:stat_name value:stat_value];
 }
@@ -35,18 +46,6 @@ RCT_EXPORT_METHOD(trackPageView) {
 RCT_EXPORT_METHOD(getCurrentExperiments:(RCTResponseSenderBlock)callback) {
     NSArray *currentExperimentsArray = [AdhocSDK getCurrentExperiments];
     callback(@[[NSNull null], currentExperimentsArray]);
-}
-
-RCT_EXPORT_METHOD(getCurrentExperimentsAndExperimentsID:(RCTResponseSenderBlock)callback) {
-    NSArray *currentExperimentInfoArray = [AdhocSDK getCurrentExperimentsAndExperimentsID];
-    callback(@[[NSNull null], currentExperimentInfoArray]);
-}
-
-RCT_EXPORT_METHOD(asynchronousGetFlag:(NSString *)flag_name defaultValue:(id)default_value timeoutInterval:(NSTimeInterval)timeout completionHandler:(RCTResponseSenderBlock)callback) {
-    [AdhocSDK asynchronousGetFlag:flag_name defaultValue:default_value timeoutInterval:timeout completionHandler:^(id flag_value, NSError *error) {
-        NSArray *array = @[RCTJSErrorFromNSError(error), flag_value];
-        callback(array);
-    }];
 }
 
 @end

@@ -5,7 +5,7 @@
 //  Created by xxx on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前SDK版本:3.1.5
+//  当前SDK版本:3.1.4.2
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -67,7 +67,7 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface AdhocSDK : NSObject
 
 /**
  统计需要的优化指标，用以实现科学有效的测试
-
+ 
  @param stat_name 后台设置的优化指标，名字须保持一致
  @param stat_value 当前优化指标单次统计的权重
  @param stat_attribute 当前数据的定向条件
@@ -87,13 +87,6 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface AdhocSDK : NSObject
 + (NSArray *)getCurrentExperiments;
 
 /**
- *  获取当前设备所在实验的实验名列表和实验ID
- *
- *  @return 实验名和对应实验ID
- */
-+ (NSArray *)getCurrentExperimentsAndExperimentsID;
-
-/**
  UIWebView调用flag接口
  
  @param request 加载链接的request
@@ -110,3 +103,4 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface AdhocSDK : NSObject
 + (BOOL)adhocWKWebViewExecute:(NSURLRequest *)request webView:(WKWebView *)webView;
 
 @end
+

@@ -4,6 +4,19 @@ const RNAdhoc = NativeModules.RNAdhoc;
 export default class AdhocSDK {
 
   /**
+   * iOS Only
+   */
+  static getFlag(flagName, defaultValue, callback) {
+    RNAdhoc.getFlag(flagName, defaultValue, (error, flagValue) => {
+     if (error) {
+       console.error(error);
+     } else {
+       callback(flagValue);
+     }
+   })
+ }
+
+  /**
    * Android Only
    */
   static getNumberFlag(flagName, defaultNumber, callback) {
@@ -11,6 +24,7 @@ export default class AdhocSDK {
       callback(flagValue);
     })
   }
+
   /**
    * Android Only
    */
@@ -19,6 +33,7 @@ export default class AdhocSDK {
       callback(flagValue);
     })
   }
+
   /**
    * Android Only
    */
@@ -27,17 +42,50 @@ export default class AdhocSDK {
       callback(flagValue);
     })
   }
+
   /**
-   * iOS Only
+   * iOS only
    */
-  static getFlag(flagName, defaultValue, callback) {
-     RNAdhoc.getFlag(flagName, defaultValue, (error, flagValue) => {
+  static asynchronousGetFlag(flagName, defaultValue, timeout, callback) {
+    RNAdhoc.asynchronousGetFlag(flagName, defaultValue, timeout, (error, flagValue) => {
       if (error) {
         console.error(error);
       } else {
         callback(flagValue);
       }
-    })
+    });
+  }
+
+  /**
+   * Android only
+   */
+  static asynchronousGetNumberFlag(flagName, defaultNumberValue, callback) {
+    RNAdhoc.asynchronousGetFlag(flagName, defaultNumberValue, (value) => {
+     
+        callback(value);
+      
+    });
+  }
+  /**
+   * Android only
+   */
+  static asynchronousGetBooleanFlag(flagName, defaultBooleanValue, callback) {
+    RNAdhoc.asynchronousGetFlag(flagName, defaultBooleanValue, (value) => {
+      
+        callback(value);
+      
+    });
+  }
+  
+  /**
+   * Android only
+   */
+  static asynchronousGetStringFlag(flagName, defaultStringValue, callback) {
+    RNAdhoc.asynchronousGetFlag(flagName, defaultStringValue, (value) => {
+
+        callback(value);
+
+    });
   }
 
   static track(key, value) {
@@ -59,48 +107,6 @@ export default class AdhocSDK {
       } else {
         callback(experiments);
       }
-    });
-  }
-  /**
-   * iOS only
-   */
-  static asynchronousGetFlag(flagName, defaultValue, timeout, callback) {
-    RNAdhoc.asynchronousGetFlag(flagName, defaultValue, timeout, (error, flagValue) => {
-      if (error) {
-        console.error(error);
-      } else {
-        callback(flagValue);
-      }
-    });
-  }
-  /**
-   * android only
-   */
-  static asynchronousGetNumberFlag(flagName, defaultNumberValue, callback) {
-    RNAdhoc.asynchronousGetFlag(flagName, defaultNumberValue, (value) => {
-     
-        callback(value);
-      
-    });
-  }
-  /**
-   * android only
-   */
-  static asynchronousGetBooleanFlag(flagName, defaultBooleanValue, callback) {
-    RNAdhoc.asynchronousGetFlag(flagName, defaultBooleanValue, (value) => {
-      
-        callback(value);
-      
-    });
-  }
-  /**
-   * android only
-   */
-  static asynchronousGetStringFlag(flagName, defaultStringValue, callback) {
-    RNAdhoc.asynchronousGetFlag(flagName, defaultStringValue, (value) => {
-
-        callback(value);
-
     });
   }
 
