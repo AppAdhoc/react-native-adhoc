@@ -21,7 +21,7 @@ export default class App extends Component<Props> {
   render() {
     let platformContent;
     if (Platform.OS === 'android') {
-      
+
       platformContent = (
         <View style={styles.container}>
         
@@ -202,7 +202,11 @@ _onPressButtonGetFlagString() {
     })}
     _onPressButtonGetFlagNumber() {
     
+<<<<<<< HEAD
     AdhocSDK.getNumberFlag("flag_int",1,callback =>{
+=======
+    AdhocSDK.getNumberFlag("flag_int",6,callback =>{
+>>>>>>> c53217c273e79a90a778626d0896aef1219ffb2a
       alert(callback);
     })}
   
