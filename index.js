@@ -20,7 +20,7 @@ export default class AdhocSDK {
    * Android Only
    */
   static getNumberFlag(flagName, defaultNumber, callback) {
-     RNAdhoc.getFlag(flagName, defaultNumber, (flagValue) => {
+     RNAdhoc.getNumberFlag(flagName, defaultNumber, (flagValue) => {
       callback(flagValue);
     })
   }
@@ -29,7 +29,7 @@ export default class AdhocSDK {
    * Android Only
    */
   static getStringFlag(flagName, defaultString, callback) {
-     RNAdhoc.getFlag(flagName, defaultString, (flagValue) => {
+     RNAdhoc.getStringFlag(flagName, defaultString, (flagValue) => {
       callback(flagValue);
     })
   }
@@ -38,7 +38,7 @@ export default class AdhocSDK {
    * Android Only
    */
   static getBooleanFlag(flagName, defaultBooleanValue, callback) {
-     RNAdhoc.getFlag(flagName, defaultBooleanValue, (flagValue) => {
+     RNAdhoc.getBooleanFlag(flagName, defaultBooleanValue, (flagValue) => {
       callback(flagValue);
     })
   }
@@ -60,7 +60,7 @@ export default class AdhocSDK {
    * Android only
    */
   static asynchronousGetNumberFlag(flagName, defaultNumberValue, callback) {
-    RNAdhoc.asynchronousGetFlag(flagName, defaultNumberValue, (value) => {
+    RNAdhoc.asynchronousGetNumberFlag(flagName, defaultNumberValue, (value) => {
      
         callback(value);
       
@@ -70,7 +70,7 @@ export default class AdhocSDK {
    * Android only
    */
   static asynchronousGetBooleanFlag(flagName, defaultBooleanValue, callback) {
-    RNAdhoc.asynchronousGetFlag(flagName, defaultBooleanValue, (value) => {
+    RNAdhoc.asynchronousGetBooleanFlag(flagName, defaultBooleanValue, (value) => {
       
         callback(value);
       
@@ -81,7 +81,7 @@ export default class AdhocSDK {
    * Android only
    */
   static asynchronousGetStringFlag(flagName, defaultStringValue, callback) {
-    RNAdhoc.asynchronousGetFlag(flagName, defaultStringValue, (value) => {
+    RNAdhoc.asynchronousGetStringFlag(flagName, defaultStringValue, (value) => {
 
         callback(value);
 
