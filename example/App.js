@@ -60,7 +60,6 @@ export default class App extends Component<Props> {
 
     return (
       <View style={styles.container}>
-
       {platformContent}
       </View>
     );
@@ -127,7 +126,7 @@ export default class App extends Component<Props> {
   }
 
   onButtonPressForCurrentExperiments() {
-    AdhocSDK.getCurrentExperimentsAndExperimentsID(experiments => {
+    AdhocSDK.getCurrentExperiments(experiments => {
       var jsonStr = JSON.stringify(experiments);
 
       Alert.alert('Adhoc Alert', jsonStr,[
@@ -178,7 +177,6 @@ export default class App extends Component<Props> {
     })}
   
   _onPressButtonGetClientId() {
-    
     AdhocSDK.getClientId((clientId) => {
     alert(clientId);
   })}
@@ -193,8 +191,8 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  }
+  },
 });

@@ -8,7 +8,6 @@
  */
 
 #import "AppDelegate.h"
-
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import "AdhocSDK.h"
@@ -18,8 +17,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   AdhocSDKConfig *config = [AdhocSDKConfig defaultConfig];
-  config.appKey = @"ADHOC_XXX";
-  config.debugAssistiveShow = YES;
+  config.appKey = @"ADHOC_xxx";
   [AdhocSDK startWithConfigure:config options:launchOptions];
   
   NSURL *jsCodeLocation;

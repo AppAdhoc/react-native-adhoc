@@ -46,8 +46,8 @@ export default class AdhocSDK {
   /**
    * iOS only
    */
-  static asynchronousGetFlag(flagName, defaultValue, timeout, callback) {
-    RNAdhoc.asynchronousGetFlag(flagName, defaultValue, timeout, (error, flagValue) => {
+  static asynchronousGetFlag(flagName, defaultValue, callback) {
+    RNAdhoc.asynchronousGetFlag(flagName, defaultValue, 10000, (error, flagValue) => {
       if (error) {
         console.error(error);
       } else {
