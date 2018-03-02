@@ -61,9 +61,7 @@ export default class AdhocSDK {
    */
   static asynchronousGetNumberFlag(flagName, defaultNumberValue, callback) {
     RNAdhoc.asynchronousGetNumberFlag(flagName, defaultNumberValue, (value) => {
-     
         callback(value);
-      
     });
   }
   /**
@@ -71,9 +69,7 @@ export default class AdhocSDK {
    */
   static asynchronousGetBooleanFlag(flagName, defaultBooleanValue, callback) {
     RNAdhoc.asynchronousGetBooleanFlag(flagName, defaultBooleanValue, (value) => {
-      
         callback(value);
-      
     });
   }
   
@@ -82,9 +78,7 @@ export default class AdhocSDK {
    */
   static asynchronousGetStringFlag(flagName, defaultStringValue, callback) {
     RNAdhoc.asynchronousGetStringFlag(flagName, defaultStringValue, (value) => {
-
         callback(value);
-
     });
   }
 
@@ -114,9 +108,7 @@ export default class AdhocSDK {
    */
   static getClientId(callback) {
     RNAdhoc.getClientId(clientId => {
-      
         callback(clientId);
-      
     });
   }
 

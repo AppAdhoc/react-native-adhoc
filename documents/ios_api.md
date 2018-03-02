@@ -54,23 +54,13 @@ import  AdhocSDK  from 'react-native-adhoc'
   
   });
   ```
-  
-- getCurrentExperimentsAndExperimentsID(Function)
 
-  获取当前设备所在实验的实验名列表和实验ID
-  
-   ```
-  AdhocSDK.getCurrentExperimentsAndExperimentsID(experiments => {
-  
-  });
-  ```
-
-- asynchronousGetFlag(String, Any, Number, Function)
+- asynchronousGetFlag(String, Any, Function)
 
   异步方式从服务器直接获取实验变量的值
   
   ```
-  AdhocSDK.asynchronousGetFlag('flagName', 'defaultValue', 10, flagValue => {
+  AdhocSDK.asynchronousGetFlag('flagName', 'defaultValue', flagValue => {
   
   });
   ```
