@@ -38,7 +38,7 @@ AdhocConfig adhocConfig = new AdhocConfig.Builder()
         //设置App上下文(必要参数)
         .context(this)
         //设置Appkey(必要参数)
-        .appKey(key)
+        .appKey("ADHOC_XXX")
         //全部配置参考官网
         .build();
 
