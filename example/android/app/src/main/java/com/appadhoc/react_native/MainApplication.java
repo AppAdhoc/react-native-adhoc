@@ -8,7 +8,6 @@ import android.support.multidex.MultiDex;
 import com.adhoc.adhocsdk.AdhocTracker;
 import com.adhoc.config.AdhocConfig;
 import com.appadhoc.BuildConfig;
-import com.appadhoc.ToastModule.ToastPackage;
 import com.appadhoc.module.AppadhocPackage;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
@@ -31,8 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
-                    new AppadhocPackage(),
-                    new ToastPackage()
+                    new AppadhocPackage()
             );
         }
 

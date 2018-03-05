@@ -20,7 +20,7 @@ import {
 type Props = {};
 export default class HomeScreen extends Component<Props> {
   static navigationOptions = {
-    title: 'Adhoc',
+    title: 'AppAdhoc-示例',
   };
   render() {
     const { navigate } = this.props.navigation;
