@@ -73,7 +73,7 @@ import  AdhocSDK  from 'react-native-adhoc'
     <WebView
             ref={'webview'}
             source={require('./index.html')}
-            style={{width: 375, height: 220}}
+            style={styles.container}
             onMessage={(e) => {
               AdhocSDK.handleWebViewMessage(this.refs.webview, e.nativeEvent.data);
             }}
