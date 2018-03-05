@@ -6,5 +6,5 @@
  * 2. int duration: The duration of the toast. May be ToastExample.SHORT or
  *    ToastExample.LONG
  */
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 module.exports = NativeModules.RNAdhoc;

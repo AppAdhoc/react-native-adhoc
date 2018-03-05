@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
+  
+</head>
+<body>
+<div style="text-align: center">
+  <input type="button" id="button1" value="AdhocSDK track" style="width:180px;height:40px;margin-top:40px"><br/><br/>
+  <input type="button" id="button2" value="AdhocSDK trackWithAttribute" style="width:180px;height:40px;"><br/><br/>
+  <input type="button" id="button3" value="AdhocSDK getFlag" style="width:180px;height:40px;">
+  <p style="text-align: center"><span id="data"></span></p>
+</div>
+<script>
+  var data = 0;
+
+ function applyFlag(flag_value) {
+    alert('flag value is:' + flag_value);
+  }
+ 
+  function sendData(data) {
+    if (window.originalPostMessage) {
+      window.postMessage(data);
+    } else {
+      throw Error('postMessage接口还未注入');
+    }
+  }
+ 
+  window.onload = function () {
+    document.addEventListener('message', function (e) {
+      document.getElementById('data').textContent = '收到react native发送的数据:'  + e.data;
+
+      var infoDic = JSON.parse(e.data); 
+      var functionName = infoDic['functionName'];  
+      var flagValue = infoDic['arguments'];
+      var functionExeStr = functionName + "('"+ flagValue +"')";
+     // eval(functionExeStr);
+    });
+
+    document.getElementById('button1').onclick = function () {
+        var command = {
+            functionName: 'track',
+            arguments: ['stat1',1]
+        };
+        var jsonStr = JSON.stringify(command);
+        var data = "adhoc:" + jsonStr;
+        sendData(data);
+        alert('track 成功');
+    }
+
+    document.getElementById('button2').onclick = function () {
+      var attribute = new Object();
+      attribute.name = "hehe";
+      attribute.age = 10;
+
+        var command = {
+            functionName: 'track',
+            arguments: ['stat2', 2, attribute]
+        };
+        var jsonStr = JSON.stringify(command);
+        var data = "adhoc:" + jsonStr;
+        sendData(data);
+
+        alert('trackWithAttribute 成功');
+    }
+    document.getElementById('button3').onclick = function () {
+        var command = {
+            functionName: 'getFlag',
+            arguments: ['flag_string', 'applyFlag']
+        };
+        var jsonStr = JSON.stringify(command);
+        var data = "adhoc:" + jsonStr;
+        sendData(data);
+    }
+  }
+</script>
+</body>
+</html>

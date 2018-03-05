@@ -112,7 +112,7 @@ export default class AdhocSDK {
     });
   }
 
-  /**
+/**
    * iOS only
    */
   static handleWebViewMessage(webView, msg) {
@@ -129,13 +129,17 @@ export default class AdhocSDK {
           RNAdhoc.track(args[0], args[1]);
         }
       } else if (functionName === 'getFlag') {
-        RNAdhoc.getFlag(args[0], args[1], (flagValue) => {
-          var functionInfo = {
-            functionName: args[2],
-            arguments: flagValue
-          };
-          var jsonStr = JSON.stringify(functionInfo);
-          webView.postMessage(jsonStr);
+        RNAdhoc.getFlag(args[0], args[1], (error, flagValue) => {
+          if (error) {
+            console.error(error);
+          } else {
+            var functionInfo = {
+              functionName: args[1],
+              arguments: flagValue
+            };
+            var jsonStr = JSON.stringify(functionInfo);
+            webView.postMessage(jsonStr);
+          }
         });
       }
     }
