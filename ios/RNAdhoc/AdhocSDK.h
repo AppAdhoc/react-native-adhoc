@@ -5,7 +5,7 @@
 //  Created by xxx on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前SDK版本:3.1.4.2
+//  当前SDK版本:3.1.4.3
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -103,4 +103,3 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface AdhocSDK : NSObject
 + (BOOL)adhocWKWebViewExecute:(NSURLRequest *)request webView:(WKWebView *)webView;
 
 @end
-
