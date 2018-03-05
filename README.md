@@ -1,3 +1,5 @@
+[![tag](https://img.shields.io/badge/tag-1.0.0-blue.svg)](https://github.com/AppAdhoc/react-native-adhoc/releases)
+
 # react-native-adhoc
 
 ## 安装
