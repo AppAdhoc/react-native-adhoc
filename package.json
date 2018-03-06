@@ -1,6 +1,6 @@
 {
   "name": "react-native-adhoc",
-  "version": "0.0.9",
+  "version": "1.0.2",
   "description": "AdhocSDK for react native application",
   "main": "index.js",
   "scripts": {
@@ -23,11 +23,17 @@
   },
   "homepage": "https://github.com/AppAdhoc/react-native-adhoc#readme",
   "rnpm": {
+    "android" :{
+      "packageInstance":"new AppadhocPackage()"
+    },
     "ios": {
       "sharedLibraries": [
         "libsqlite3",
         "libicucore"
       ]
+    },
+    "commands": {
+      "prelink": "node node_modules/react-native-adhoc/AdhocRNConfiguration"
     }
   }
 }
