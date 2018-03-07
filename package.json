@@ -16,6 +16,11 @@
     "adhoc",
     "adhocsdk"
   ],
+  "files": [
+    "ios",
+    "android",
+    "index.js"
+  ],
   "author": "AppAdhoc Technology Co.Ltd.",
   "license": "ISC",
   "bugs": {
