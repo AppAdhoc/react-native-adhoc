@@ -1,23 +1,12 @@
-const fs = require('fs')
-const path = require('path')
-const inquirer = require('inquirer')
-
-const questions = [
-  {
-    type: 'input',
-    name: 'moduleName',
-    message: 'Input the module name of android',
-    default: 'app'
-  }
-]
-
-inquirer.prompt(questions).then(answers => {
-  const { appKey, moduleName } = answers
-  if (moduleName == undefined) {
-    moduleName = "app"
-  }
-  })
-
+var fs = require('fs')
+var path = require('path')
+var moduleName = 'app'
+//inquirer.prompt(questions).then((answers) => {
+  //const {  moduleName } = answers
+  //if (moduleName == undefined) {
+  // moduleName = "app"
+ //}
+ // console.log(moduleName)
   getConfigureFiles('./android', function(f, s) {
     // 找到settings.gradle
     var isSettingGradle = f.match(/settings\.gradle/)
@@ -29,11 +18,14 @@ inquirer.prompt(questions).then(answers => {
     // 找到project下的build.gradle
     var isProjectGradle = f.match(/.*\/build\.gradle/)
     if (isProjectGradle != null) {
-      console.log('find build.gradle in android project ' + f)
+      console.log('\nfind build.gradle in android project ' + f)
       configureGradle(f)
-      configureAppKey(f, appKey)
+//      configureAppKey(f, appKey)
     }
   })
+  //})
+
+  
 
 
 
