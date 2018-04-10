@@ -1,6 +1,6 @@
 {
   "name": "react-native-adhoc",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "AdhocSDK for react native application",
   "main": "index.js",
   "scripts": {
