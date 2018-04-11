@@ -13,7 +13,7 @@
 
 ```gradle
 include ':react-native-adhoc'
-project(':react-native-adhoc').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-adhoc/android/app')
+project(':react-native-adhoc').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-adhoc/android')
 ```
 
 **android/app/build.gradle**
