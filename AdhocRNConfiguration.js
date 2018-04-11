@@ -96,7 +96,7 @@ function configureSetting(file, moduleName) {
     var re = new RegExp("\n.*include.*':" + moduleName + "'", 'gi')
     var searchKey = rf.match(re)
     if (searchKey != null) {
-      rf = rf.replace("\n", "\ninclude ':react-native-adhoc' \nproject(':react-native-adhoc').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-adhoc/android/app')\n")
+      rf = rf.replace("\n", "\ninclude ':react-native-adhoc' \nproject(':react-native-adhoc').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-adhoc/android')\n")
       fs.writeFileSync(file, rf, 'utf-8')
     } else {
       console.log('Did not find include in settings.gradle: ' + file)
