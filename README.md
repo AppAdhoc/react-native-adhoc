@@ -49,7 +49,7 @@ AdhocConfig adhocConfig = new AdhocConfig.Builder()
 
 AdhocTracker.init(adhocConfig);
 ```
-### 实例代码
+### 示例代码
 ```
 请运行example里面示例代码，查看api调用示例。
 ```
