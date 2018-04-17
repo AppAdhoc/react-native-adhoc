@@ -56,7 +56,7 @@ public class MainApplication extends Application implements ReactApplication {
                 //设置App上下文(必要参数)
                 .context(this)
                 //设置Appkey(必要参数)
-                .appKey("ADHOC_6cd6a401-05ca-4ae8-acb1-35254d2f3042")
+                .appKey("your key")
                 //添加自定义用户标签
                 .build();
 
