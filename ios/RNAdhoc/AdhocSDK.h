@@ -5,7 +5,7 @@
 //  Created by xxx on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前SDK版本:3.1.4.3
+//  当前SDK版本:3.1.5.1
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -16,7 +16,7 @@
 @interface AdhocSDKConfig : NSObject
 @property (nonatomic, copy) NSString *appKey;  //官网申请的key，必填项
 @property (nonatomic, copy) NSString *clientID; //自定义clientid，如无特殊需求，不需要设置
-@property (nonatomic) BOOL debugAssistiveShow; //是否显示调试按钮，默认为NO，不显示（若显示，getflag与track接口访问实时处理，设置的时间间隔无效）
+@property (nonatomic) BOOL enableDebugAssist; //是否显示调试按钮，默认为NO，不显示（若显示，getflag与track接口访问实时处理，设置的时间间隔无效）
 @property (nonatomic) BOOL crashTrackEnabled;  //是否统计crash次数，默认为NO，不进行统计
 @property (nonatomic) BOOL sessionTrackEnabled; //是否统计APP访问次数，默认为YES，进行统计
 @property (nonatomic) BOOL durationTrackEnabled; //是否统计APP一次访问的时长，默认为YES，进行统计
@@ -28,7 +28,7 @@
 /**
  *  用于获取实验变量以及进行优化指标统计
  */
-NS_CLASS_AVAILABLE_IOS(7_0) @interface AdhocSDK : NSObject
+NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDK : NSObject
 
 /// SDK启动接口，需在@selector(application:didFinishLaunchingWithOptions:)里启动
 + (void)startWithConfigure:(AdhocSDKConfig *)config options:(NSDictionary *)options;
@@ -67,7 +67,7 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface AdhocSDK : NSObject
 
 /**
  统计需要的优化指标，用以实现科学有效的测试
- 
+
  @param stat_name 后台设置的优化指标，名字须保持一致
  @param stat_value 当前优化指标单次统计的权重
  @param stat_attribute 当前数据的定向条件
@@ -87,6 +87,14 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface AdhocSDK : NSObject
 + (NSArray *)getCurrentExperiments;
 
 /**
+ *  获取ClientID
+ *
+ *  @return ClientID
+ */
++ (NSString *)getClientID;
+
+
+/**
  UIWebView调用flag接口
  
  @param request 加载链接的request
@@ -102,4 +110,8 @@ NS_CLASS_AVAILABLE_IOS(7_0) @interface AdhocSDK : NSObject
  */
 + (BOOL)adhocWKWebViewExecute:(NSURLRequest *)request webView:(WKWebView *)webView;
 
+@end
+
+@interface UIView (Adhoc)
+@property (nonatomic, copy) NSString * adhoc_idf; //用户指定控件唯一标识,目前只支持index(数字)，例:cell.adhoc_idf = @"1";
 @end
