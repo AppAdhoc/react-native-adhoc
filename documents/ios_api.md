@@ -26,7 +26,7 @@ import  AdhocSDK  from 'react-native-adhoc'
   统计需要的优化指标，用以实现科学有效的测试
   
   ```
-  AdhocSDK.track('stat_nameXXX', 1); // 1 是指标增加值。
+  AdhocSDK.track('stat_nameXXX', 1); // stat_nameXXX 是指标名称；1 是指标增加值。
   ```
   
 - trackWithAttribute(String, Number, Dictionary)
@@ -34,7 +34,7 @@ import  AdhocSDK  from 'react-native-adhoc'
   统计需要的优化指标（可以添加附加信息），用以实现科学有效的测试 
 
   ```
-  AdhocSDK.trackWithAttribute('stat_nameXXX', 1, {name: 'Tom', age: 18}); // 1 是指标增加值， {name: 'Tom', age: 18} 是多维度统计需要的维度和值。
+  AdhocSDK.trackWithAttribute('stat_nameXXX', 1, {name: 'Tom', age: 18}); // stat_nameXXX 是指标名称；1 是指标增加值， {name: 'Tom', age: 18} 是多维度统计需要的维度和值。
   ```
 
 - trackPageView()

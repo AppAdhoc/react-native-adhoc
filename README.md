@@ -36,7 +36,7 @@ config.appKey = @"ADHOC_XXX";
 
 ### Android SDK 初始化
 
-在Application的onCreate方法中初始化原生SDK
+在 Application的onCreate 方法中初始化原生 SDK
 
 ```
 AdhocConfig adhocConfig = new AdhocConfig.Builder()
@@ -51,7 +51,7 @@ AdhocTracker.init(adhocConfig);
 ```
 ### 示例代码
 ```
-请运行example里面示例代码，查看api调用示例。
+请运行 example 里面示例代码，查看 API 调用示例。
 ```
 ## API
 
