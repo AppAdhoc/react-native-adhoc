@@ -16,7 +16,7 @@ import  AdhocSDK  from 'react-native-adhoc'
   获取后台设置的指定的Number类型实验变量的值，实验变量的名字注意与后台保持一致，Number为默认值参数
   
   ```
-  AdhocSDK.getNumberFlag('flag_nameXXX', 7, flagValue => {
+  AdhocSDK.getNumberFlag('flag_nameXXX', 1, flagValue => { // 1 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
   
   });
   ```
@@ -25,7 +25,7 @@ import  AdhocSDK  from 'react-native-adhoc'
   获取后台设置的指定的Boolean类型实验变量的值，实验变量的名字注意与后台保持一致，boolean为默认值参数
   
   ```
-  AdhocSDK.getBooleanFlag('flag_nameXXX', false, flagValue => {
+  AdhocSDK.getBooleanFlag('flag_nameXXX', false, flagValue => { // false 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
   
   });
   ```
@@ -34,7 +34,7 @@ import  AdhocSDK  from 'react-native-adhoc'
   获取后台设置的指定的字符串类型实验变量的值，实验变量的名字注意与后台保持一致，String为默认值参数
   
   ```
-  AdhocSDK.getStringFlag('flag_nameXXX', 'default_stringXXX', flagValue => {
+  AdhocSDK.getStringFlag('flag_nameXXX', 'default_stringXXX', flagValue => { // default_stringXXX 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
   
   });
   ```
@@ -44,7 +44,7 @@ import  AdhocSDK  from 'react-native-adhoc'
   统计需要的优化指标，用以实现科学有效的测试
   
   ```
-  AdhocSDK.track('stat_nameXXX', 7);
+  AdhocSDK.track('stat_nameXXX', 1); // 1 是指标增加值。
   ```
   
 - trackWithAttribute(String, Number, Dictionary)
@@ -52,7 +52,7 @@ import  AdhocSDK  from 'react-native-adhoc'
   统计需要的优化指标（可以添加附加信息），用以实现科学有效的测试 
 
   ```
-  AdhocSDK.trackWithAttribute('stat_nameXXX', 7, {name: 'Tom', age: 18});
+  AdhocSDK.trackWithAttribute('stat_nameXXX', 1, {name: 'Tom', age: 18}); // 1 是指标增加值， {name: 'Tom', age: 18} 是多维度统计需要的维度和值。
   ```
 
 - trackPageView()
@@ -87,7 +87,7 @@ import  AdhocSDK  from 'react-native-adhoc'
   异步方式从服务器直接获取Number类型实验变量的值
   
   ```
-  AdhocSDK.asynchronousGetNumberFlag('flagName', 10, flagValue => {
+  AdhocSDK.asynchronousGetNumberFlag('flagName', 1, flagValue => { // 1 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
   
   });
   ```
@@ -96,7 +96,7 @@ import  AdhocSDK  from 'react-native-adhoc'
   异步方式从服务器直接获取字符串类型实验变量的值
   
   ```
-  AdhocSDK.asynchronousGetStringFlag('flagName', 'default_stringXXX', flagValue => {
+  AdhocSDK.asynchronousGetStringFlag('flagName', 'default_stringXXX', flagValue => { // default_stringXXX 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
   
   });
   ```
@@ -105,7 +105,7 @@ import  AdhocSDK  from 'react-native-adhoc'
   异步方式从服务器直接获取Bool类型实验变量的值
   
   ```
-  AdhocSDK.asynchronousGetBooleanFlag('flagName', false, flagValue => {
+  AdhocSDK.asynchronousGetBooleanFlag('flagName', false, flagValue => { // false 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
   
   });
   ```
