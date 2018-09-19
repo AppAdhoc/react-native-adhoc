@@ -13,7 +13,7 @@ import  AdhocSDK  from 'react-native-adhoc'
 
 - getFlag(String, Any, Function)
 
-  获取后台设置的指定的实验变量的值，实验变量的名字注意与后台保持一致
+  获取后台设置的指定的试验变量的值，试验变量的名字注意与后台保持一致
   
   ```
   AdhocSDK.getFlag('flag_nameXXX', 1, flagValue => { // 1 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
@@ -47,7 +47,7 @@ import  AdhocSDK  from 'react-native-adhoc'
  
 - getCurrentExperiments(Function)
 
-  获取当前设备所在实验的实验名列表
+  获取当前设备所在试验的试验名列表
   
   ```
   AdhocSDK.getCurrentExperiments(experiments => {
@@ -57,7 +57,7 @@ import  AdhocSDK  from 'react-native-adhoc'
 
 - asynchronousGetFlag(String, Any, Function)
 
-  异步方式从服务器直接获取实验变量的值
+  异步方式从服务器直接获取试验变量的值
   
   ```
   AdhocSDK.asynchronousGetFlag('flagName', 1, flagValue => {  // 1 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
