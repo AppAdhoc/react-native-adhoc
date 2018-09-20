@@ -26,4 +26,9 @@ public class AppadhocPackage implements ReactPackage {
         return modules;
     }
 
+    // react-native 版本是0.47 去掉该方法
+    public List<Class<? extends JavaScriptModule>> createJSModules() {
+        return Collections.emptyList();
+    }
+
 }
