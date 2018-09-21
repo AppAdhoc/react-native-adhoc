@@ -148,7 +148,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.facebook.react:react-native:+'
-        compile project(':react-native-adhoc')
 //    compile project(':react-native-adhoc')
 }
 
