@@ -108,12 +108,8 @@ export default class AdhocSDK {
   }
 
   static getCurrentExperiments(callback) {
-    RNAdhoc.getCurrentExperiments((error, experiments) => {
-      if (error) {
-        console.error(error);
-      } else {
-        callback(experiments);
-      }
+    RNAdhoc.getCurrentExperiments(experiments => {
+      callback(experiments);
     });
   }
 

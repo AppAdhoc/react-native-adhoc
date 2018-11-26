@@ -1,4 +1,4 @@
-[![tag](https://img.shields.io/badge/tag-1.1.5-blue.svg)](https://github.com/AppAdhoc/react-native-adhoc/releases)
+[![tag](https://img.shields.io/badge/tag-1.1.7-blue.svg)](https://github.com/AppAdhoc/react-native-adhoc/releases)
 
 # react-native-adhoc
 
