@@ -1,0 +1,6 @@
+framework module AdhocSDK {
+  umbrella header "AdhocSDK.h"
+
+  export *
+  module * { export * }
+}

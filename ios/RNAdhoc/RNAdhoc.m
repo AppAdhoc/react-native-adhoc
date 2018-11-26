@@ -2,31 +2,41 @@
 //  RNAdhoc.m
 //  RNAdhoc
 //
-//  Created by Yiming on 2018/2/26.
-//  Copyright © 2018年 appadhoc. All rights reserved.
+//  Created by admin on 2018/11/23.
+//  Copyright © 2018 AppAdhoc. All rights reserved.
 //
 
 #import "RNAdhoc.h"
-#import <React/RCTLog.h>
 #import <React/RCTUtils.h>
-#import "AdhocSDK.h"
+#import <AdhocSDK/AdhocSDK.h>
 
 @implementation RNAdhoc
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(getFlag:(NSString *)flag_name default:(id)default_value callback:(RCTResponseSenderBlock)callback) {
-    id flagValue = [AdhocSDK getFlag:flag_name default:default_value];
-    callback(@[[NSNull null], flagValue]);
+RCT_EXPORT_METHOD(getFlag:(NSString *)flagName default:(id)defaultValue callback:(RCTResponseSenderBlock)completionHandler) {
+    id flagValue = [AdhocSDK getFlag:flagName default:defaultValue];
+    completionHandler(@[[NSNull null], flagValue]);
 }
 
-RCT_EXPORT_METHOD(asynchronousGetFlag:(NSString *)flag_name defaultValue:(id)default_value timeoutInterval:(NSTimeInterval)timeout completionHandler:(RCTResponseSenderBlock)callback) {
-    [AdhocSDK asynchronousGetFlag:flag_name defaultValue:default_value timeoutInterval:timeout completionHandler:^(id flag_value, NSError *error) {
+RCT_EXPORT_METHOD(getFastFlag:(NSString *)flagName defaultValue:(id)defaultValue timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(RCTResponseSenderBlock)completionHandler) {
+    [AdhocSDK asynchronousGetFlag:flagName defaultValue:defaultValue timeoutInterval:timeoutInterval completionHandler:^(id flagValue, NSError *error) {
         if (error) {
-            NSArray *array = @[RCTJSErrorFromNSError(error), flag_value];
-            callback(array);
+            NSArray *array = @[RCTJSErrorFromNSError(error), flagValue];
+            completionHandler(array);
         } else {
-            callback(@[[NSNull null], flag_value]);
+            completionHandler(@[[NSNull null], flagValue]);
+        }
+    }];
+}
+
+RCT_EXPORT_METHOD(asynchronousGetFlag:(NSString *)flagName defaultValue:(id)defaultValue timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(RCTResponseSenderBlock)completionHandler) {
+    [AdhocSDK asynchronousGetFlag:flagName defaultValue:defaultValue timeoutInterval:timeoutInterval completionHandler:^(id flagValue, NSError *error) {
+        if (error) {
+            NSArray *array = @[RCTJSErrorFromNSError(error), flagValue];
+            completionHandler(array);
+        } else {
+            completionHandler(@[[NSNull null], flagValue]);
         }
     }];
 }
@@ -48,5 +58,9 @@ RCT_EXPORT_METHOD(getCurrentExperiments:(RCTResponseSenderBlock)callback) {
     callback(@[[NSNull null], currentExperimentsArray]);
 }
 
-@end
+RCT_EXPORT_METHOD(getClientId:(RCTResponseSenderBlock)callback) {
+    NSString *clientID = [AdhocSDK getClientID];
+    callback(@[clientID]);
+}
 
+@end

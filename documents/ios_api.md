@@ -21,6 +21,26 @@ import  AdhocSDK  from 'react-native-adhoc'
   });
   ```
   
+- getFlagFast(String, Any, Function)
+
+  异步方式从缓存直接获取试验变量的值，并检查更新本地 flags 数据
+  
+  ```
+  AdhocSDK.getFlagFast('flagName', 1, flagValue => {  // 1 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
+  
+  });
+  ```
+  
+- asynchronousGetFlag(String, Any, Function)
+
+  异步方式从服务器直接获取试验变量的值
+  
+  ```
+  AdhocSDK.asynchronousGetFlag('flagName', 1, flagValue => {  // 1 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
+  
+  });
+  ```
+  
 - track(String, Number)
   
   统计需要的优化指标，用以实现科学有效的测试
@@ -47,20 +67,22 @@ import  AdhocSDK  from 'react-native-adhoc'
  
 - getCurrentExperiments(Function)
 
-  获取当前设备所在试验的试验名列表
+   获取当前设备所在试验的试验名列表
+   1.数组中只有 CONTROL，代表未进入任何试验
+   2.数组中存在一个或多个字典，代表进入一个或多个试验，字典内容如下：``{ id: "试验版本 ID", name: "试验名称"}``
   
   ```
   AdhocSDK.getCurrentExperiments(experiments => {
   
   });
   ```
-
-- asynchronousGetFlag(String, Any, Function)
-
-  异步方式从服务器直接获取试验变量的值
+  
+- getClientId(Function)
+  
+  获取 ClientID
   
   ```
-  AdhocSDK.asynchronousGetFlag('flagName', 1, flagValue => {  // 1 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
+  AdhocSDK.getClientId(clientId => {
   
   });
   ```
@@ -79,3 +101,7 @@ import  AdhocSDK  from 'react-native-adhoc'
             }}
           />
   ```
+
+#### 从 Xcode 中移除 AdhocSDK 
+
+使用 ``react-native unlink react-native-adhoc`` 命令

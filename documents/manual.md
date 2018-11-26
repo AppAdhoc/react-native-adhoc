@@ -1,10 +1,10 @@
 #### Manual
 
-如何react-native link出错，可用按以下步骤手动配置。
+如果 react-native link 出错，可用按以下步骤手动配置。
 
 ##### iOS
 
-稍后添加
+不建议使用手动添加，使用命令 react-native link 进行配置。如果卸载 SDK 请使用 react-native unlink
 
 ##### Android
 

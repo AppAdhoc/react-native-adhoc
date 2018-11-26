@@ -3,93 +3,83 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0377687620454362003BBC05 /* AdhocSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0377687420454346003BBC05 /* AdhocSDK.a */; };
-		0385E7CF20441FB800240AFB /* RNAdhoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 0385E7CE20441FB800240AFB /* RNAdhoc.m */; };
-		0385E7D020441FB800240AFB /* RNAdhoc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0385E7CD20441FB800240AFB /* RNAdhoc.h */; };
+		84E9988C21A7E0E700D740B6 /* RNAdhoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9988B21A7E0E700D740B6 /* RNAdhoc.m */; };
+		84E9988D21A7E0E700D740B6 /* RNAdhoc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84E9988A21A7E0E700D740B6 /* RNAdhoc.h */; };
+		84E9989421A7E10500D740B6 /* AdhocSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E9989321A7E10500D740B6 /* AdhocSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0385E7C820441FB800240AFB /* CopyFiles */ = {
+		84E9988521A7E0E700D740B6 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				0385E7D020441FB800240AFB /* RNAdhoc.h in CopyFiles */,
+				84E9988D21A7E0E700D740B6 /* RNAdhoc.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0377687420454346003BBC05 /* AdhocSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = AdhocSDK.a; sourceTree = "<group>"; };
-		037768752045435C003BBC05 /* AdhocSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdhocSDK.h; sourceTree = "<group>"; };
-		0385E7CA20441FB800240AFB /* libRNAdhoc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNAdhoc.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0385E7CD20441FB800240AFB /* RNAdhoc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNAdhoc.h; sourceTree = "<group>"; };
-		0385E7CE20441FB800240AFB /* RNAdhoc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNAdhoc.m; sourceTree = "<group>"; };
+		84E9988721A7E0E700D740B6 /* libRNAdhoc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNAdhoc.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		84E9988A21A7E0E700D740B6 /* RNAdhoc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNAdhoc.h; sourceTree = "<group>"; };
+		84E9988B21A7E0E700D740B6 /* RNAdhoc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNAdhoc.m; sourceTree = "<group>"; };
+		84E9989321A7E10500D740B6 /* AdhocSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdhocSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0385E7C720441FB800240AFB /* Frameworks */ = {
+		84E9988421A7E0E700D740B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0377687620454362003BBC05 /* AdhocSDK.a in Frameworks */,
+				84E9989421A7E10500D740B6 /* AdhocSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0385E7C120441FB800240AFB = {
+		84E9987E21A7E0E700D740B6 = {
 			isa = PBXGroup;
 			children = (
-				0385E7CC20441FB800240AFB /* RNAdhoc */,
-				0385E7CB20441FB800240AFB /* Products */,
-				0385E7DE2044230700240AFB /* Frameworks */,
+				84E9988921A7E0E700D740B6 /* RNAdhoc */,
+				84E9988821A7E0E700D740B6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0385E7CB20441FB800240AFB /* Products */ = {
+		84E9988821A7E0E700D740B6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0385E7CA20441FB800240AFB /* libRNAdhoc.a */,
+				84E9988721A7E0E700D740B6 /* libRNAdhoc.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0385E7CC20441FB800240AFB /* RNAdhoc */ = {
+		84E9988921A7E0E700D740B6 /* RNAdhoc */ = {
 			isa = PBXGroup;
 			children = (
-				037768752045435C003BBC05 /* AdhocSDK.h */,
-				0377687420454346003BBC05 /* AdhocSDK.a */,
-				0385E7CD20441FB800240AFB /* RNAdhoc.h */,
-				0385E7CE20441FB800240AFB /* RNAdhoc.m */,
+				84E9989321A7E10500D740B6 /* AdhocSDK.framework */,
+				84E9988A21A7E0E700D740B6 /* RNAdhoc.h */,
+				84E9988B21A7E0E700D740B6 /* RNAdhoc.m */,
 			);
 			path = RNAdhoc;
-			sourceTree = "<group>";
-		};
-		0385E7DE2044230700240AFB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0385E7C920441FB800240AFB /* RNAdhoc */ = {
+		84E9988621A7E0E700D740B6 /* RNAdhoc */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0385E7D320441FB800240AFB /* Build configuration list for PBXNativeTarget "RNAdhoc" */;
+			buildConfigurationList = 84E9989021A7E0E700D740B6 /* Build configuration list for PBXNativeTarget "RNAdhoc" */;
 			buildPhases = (
-				0385E7C620441FB800240AFB /* Sources */,
-				0385E7C720441FB800240AFB /* Frameworks */,
-				0385E7C820441FB800240AFB /* CopyFiles */,
+				84E9988321A7E0E700D740B6 /* Sources */,
+				84E9988421A7E0E700D740B6 /* Frameworks */,
+				84E9988521A7E0E700D740B6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -97,54 +87,53 @@
 			);
 			name = RNAdhoc;
 			productName = RNAdhoc;
-			productReference = 0385E7CA20441FB800240AFB /* libRNAdhoc.a */;
+			productReference = 84E9988721A7E0E700D740B6 /* libRNAdhoc.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0385E7C220441FB800240AFB /* Project object */ = {
+		84E9987F21A7E0E700D740B6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
-				ORGANIZATIONNAME = appadhoc;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = AppAdhoc;
 				TargetAttributes = {
-					0385E7C920441FB800240AFB = {
-						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+					84E9988621A7E0E700D740B6 = {
+						CreatedOnToolsVersion = 10.1;
 					};
 				};
 			};
-			buildConfigurationList = 0385E7C520441FB800240AFB /* Build configuration list for PBXProject "RNAdhoc" */;
-			compatibilityVersion = "Xcode 8.0";
+			buildConfigurationList = 84E9988221A7E0E700D740B6 /* Build configuration list for PBXProject "RNAdhoc" */;
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 0385E7C120441FB800240AFB;
-			productRefGroup = 0385E7CB20441FB800240AFB /* Products */;
+			mainGroup = 84E9987E21A7E0E700D740B6;
+			productRefGroup = 84E9988821A7E0E700D740B6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0385E7C920441FB800240AFB /* RNAdhoc */,
+				84E9988621A7E0E700D740B6 /* RNAdhoc */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0385E7C620441FB800240AFB /* Sources */ = {
+		84E9988321A7E0E700D740B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0385E7CF20441FB800240AFB /* RNAdhoc.m in Sources */,
+				84E9988C21A7E0E700D740B6 /* RNAdhoc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		0385E7D120441FB800240AFB /* Debug */ = {
+		84E9988E21A7E0E700D740B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -154,10 +143,12 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -165,6 +156,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -192,14 +184,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		0385E7D220441FB800240AFB /* Release */ = {
+		84E9988F21A7E0E700D740B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -209,10 +202,12 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -220,6 +215,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -241,14 +237,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		0385E7D420441FB800240AFB /* Debug */ = {
+		84E9989121A7E0E700D740B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -256,17 +253,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RNAdhoc",
-					"\"$(SRCROOT)/RNAdhoc/AdhocSDK.framework\"",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../react-native/React/**",
-					"\"$(SRCROOT)/RNAdhoc/AdhocSDK.framework/Headers/AdhocSDK.h\"",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/RNAdhoc",
-				);
-				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -274,7 +261,7 @@
 			};
 			name = Debug;
 		};
-		0385E7D520441FB800240AFB /* Release */ = {
+		84E9989221A7E0E700D740B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -282,17 +269,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RNAdhoc",
-					"\"$(SRCROOT)/RNAdhoc/AdhocSDK.framework\"",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../react-native/React/**",
-					"\"$(SRCROOT)/RNAdhoc/AdhocSDK.framework/Headers/AdhocSDK.h\"",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/RNAdhoc",
-				);
-				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -303,25 +280,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0385E7C520441FB800240AFB /* Build configuration list for PBXProject "RNAdhoc" */ = {
+		84E9988221A7E0E700D740B6 /* Build configuration list for PBXProject "RNAdhoc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0385E7D120441FB800240AFB /* Debug */,
-				0385E7D220441FB800240AFB /* Release */,
+				84E9988E21A7E0E700D740B6 /* Debug */,
+				84E9988F21A7E0E700D740B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0385E7D320441FB800240AFB /* Build configuration list for PBXNativeTarget "RNAdhoc" */ = {
+		84E9989021A7E0E700D740B6 /* Build configuration list for PBXNativeTarget "RNAdhoc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0385E7D420441FB800240AFB /* Debug */,
-				0385E7D520441FB800240AFB /* Release */,
+				84E9989121A7E0E700D740B6 /* Debug */,
+				84E9989221A7E0E700D740B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0385E7C220441FB800240AFB /* Project object */;
+	rootObject = 84E9987F21A7E0E700D740B6 /* Project object */;
 }
