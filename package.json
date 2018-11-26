@@ -35,8 +35,8 @@
     "react-native-windows": "0.41.0-rc.1"
   },
   "rnpm": {
-    "android" :{
-      "packageInstance":"new AppadhocPackage()"
+    "android": {
+      "packageInstance": "new AppadhocPackage()"
     },
     "ios": {
       "sharedLibraries": [

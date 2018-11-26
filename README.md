@@ -24,7 +24,9 @@ react-native link
 
 找到 AppDelegate.m 文件， 引用头文件：
 
-```#import "AdhocSDK.h"```
+```
+#import <AdhocSDK/AdhocSDK.h>
+```
 
 在 @selector(application:didFinishLaunchingWithOptions:) 中：
 
