@@ -45,9 +45,15 @@ export default class HomeScreen extends Component<Props> {
         <Button
           onPress={this.onButtonPressForGetFlag}
           title="Get Flag"/>
+            <Button
+          onPress={this.onButtonPressForGetFlagFast}
+          title="Get Flag Fast"/>
         <Button
           onPress={this.onButtonPressForAsyGetFlag}
           title="Asynchronous Get Flag"/>
+          <Button
+          onPress={this.onButtonPressForGetClientId}
+          title="Get Client ID"/>
         <Button
           onPress={this.onButtonPressForTrack}
           title="Track"/>
@@ -85,6 +91,18 @@ export default class HomeScreen extends Component<Props> {
     });
   }
 
+  onButtonPressForGetFlagFast() {
+    AdhocSDK.getFlagFast('flag_string','h', flagValue => {
+      Alert.alert(
+        'Adhoc Alert',
+        flagValue.toString(),
+        [
+          {Button: 'OK', onPress: () => console.log('OK Pressed!')},
+        ]
+      );
+    });
+  }
+
   onButtonPressForAsyGetFlag() {
     AdhocSDK.asynchronousGetFlag('flag_string','h', flagValue => {
       Alert.alert(
@@ -95,6 +113,12 @@ export default class HomeScreen extends Component<Props> {
         ]
       );
     });
+  }
+
+  onButtonPressForGetClientId() {
+    AdhocSDK.getClientId((clientId) => {
+      alert(clientId);
+    })
   }
 
   onButtonPressForTrack() {

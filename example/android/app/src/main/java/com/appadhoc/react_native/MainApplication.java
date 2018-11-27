@@ -8,7 +8,6 @@ import android.support.multidex.MultiDex;
 import com.adhoc.adhocsdk.AdhocTracker;
 import com.adhoc.config.AdhocConfig;
 import com.appadhoc.BuildConfig;
-import com.appadhoc.module.AppadhocPackage;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -30,7 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
-                    new AppadhocPackage()
+                    new com.appadhoc.module.AppadhocPackage()
             );
         }
 
@@ -49,8 +48,8 @@ public class MainApplication extends Application implements ReactApplication {
     public void onCreate() {
         super.onCreate();
         MultiDex.install(this);
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        sharedPreferences.edit().putString("debug_http_host", "192.168.0.22:8081").commit();
+//        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+//        sharedPreferences.edit().putString("debug_http_host", "192.168.0.22:8081").commit();
         SoLoader.init(this, /* native exopackage */ false);
         AdhocConfig adhocConfig = new AdhocConfig.Builder()
                 //设置App上下文(必要参数)

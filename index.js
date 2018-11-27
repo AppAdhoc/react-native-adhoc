@@ -44,10 +44,23 @@ export default class AdhocSDK {
   }
 
   /**
+   * iOS Only
+   */
+  static getFlagFast(flagName, defaultValue, callback) {
+    RNAdhoc.getFlagFast(flagName, defaultValue, 5000, (error, flagValue) => {
+     if (error) {
+       console.error(error);
+     } else {
+       callback(flagValue);
+     }
+   })
+ }
+
+  /**
    * iOS only
    */
   static asynchronousGetFlag(flagName, defaultValue, callback) {
-    RNAdhoc.asynchronousGetFlag(flagName, defaultValue, 10000, (error, flagValue) => {
+    RNAdhoc.asynchronousGetFlag(flagName, defaultValue, 5000, (error, flagValue) => {
       if (error) {
         console.error(error);
       } else {
@@ -95,17 +108,11 @@ export default class AdhocSDK {
   }
 
   static getCurrentExperiments(callback) {
-    RNAdhoc.getCurrentExperiments((error, experiments) => {
-      if (error) {
-        console.error(error);
-      } else {
-        callback(experiments);
-      }
+    RNAdhoc.getCurrentExperiments(experiments => {
+      callback(experiments);
     });
   }
-  /**
-   * android only
-   */
+
   static getClientId(callback) {
     RNAdhoc.getClientId(clientId => {
         callback(clientId);

@@ -10,3 +10,4 @@ build/
 *.iml
 *.apk/
 local.properties
+package-lock.json

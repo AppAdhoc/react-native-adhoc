@@ -1,4 +1,4 @@
-[![tag](https://img.shields.io/badge/tag-1.0.0-blue.svg)](https://github.com/AppAdhoc/react-native-adhoc/releases)
+[![tag](https://img.shields.io/badge/tag-2.0.0-blue.svg)](https://github.com/AppAdhoc/react-native-adhoc/releases)
 
 # react-native-adhoc
 
@@ -20,7 +20,9 @@ react-native link
 
 找到 AppDelegate.m 文件， 引用头文件：
 
-```#import "AdhocSDK.h"```
+```
+#import <AdhocSDK/AdhocSDK.h>
+```
 
 在 @selector(application:didFinishLaunchingWithOptions:) 中：
 
@@ -32,7 +34,7 @@ config.appKey = @"ADHOC_XXX";
 
 ### Android SDK 初始化
 
-在Application的onCreate方法中初始化原生SDK
+在 Application的onCreate 方法中初始化原生 SDK
 
 ```
 AdhocConfig adhocConfig = new AdhocConfig.Builder()
@@ -47,7 +49,7 @@ AdhocTracker.init(adhocConfig);
 ```
 ### 实例代码
 ```
-请运行example里面示例代码，查看api调用示例。
+请运行 example 里面示例代码，查看 API 调用示例。
 ```
 ## API
 

@@ -4,7 +4,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-
+import com.facebook.react.bridge.JavaScriptModule;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -24,6 +24,11 @@ public class AppadhocPackage implements ReactPackage {
         modules.add(new AppadhocModule(reactContext));
 
         return modules;
+    }
+
+    // react-native 版本是0.47 去掉该方法
+    public List<Class<? extends JavaScriptModule>> createJSModules() {
+        return Collections.emptyList();
     }
 
 }

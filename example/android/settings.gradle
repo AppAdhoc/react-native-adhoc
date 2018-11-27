@@ -1,3 +1,4 @@
 rootProject.name = 'AdhocDemo'
-
+include ':react-native-letote-adhoc'
+project(':react-native-letote-adhoc').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-letote-adhoc/android')
 include ':app'
