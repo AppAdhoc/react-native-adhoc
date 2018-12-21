@@ -58,9 +58,9 @@ public class AppadhocModule extends ReactContextBaseJavaModule {
         AdhocTracker.track(var0, var1);
     }
 
-    @ReactMethod
-    public void trackPageView() {
-        AdhocTracker.trackPageView();
+   @ReactMethod
+   public void addUserAttribute(String key,String value) {
+       AdhocTracker.setUserAttribute(key,value);
     }
 
     @ReactMethod
@@ -77,6 +77,7 @@ public class AppadhocModule extends ReactContextBaseJavaModule {
             }
         });
     }
+    
 
     @ReactMethod
     public void asynchronousGetBooleanFlag(final String key, final boolean defaultValue, final Callback callback) {
@@ -98,6 +99,36 @@ public class AppadhocModule extends ReactContextBaseJavaModule {
         });
     }
 
+    @ReactMethod
+    public void getFlagFast(final String key, final String defaultValue, final Callback callback) {
+        AdhocTracker.fastGetFlag(30*1000,new OnAdHocReceivedData() {
+            @Override
+            public void onReceivedData(ExperimentFlags experimentFlags) {
+                callback.invoke(experimentFlags.getFlag(key, defaultValue));
+            }
+        });
+    }
+    
+
+    @ReactMethod
+    public void getFlagFast(final String key, final boolean defaultValue, final Callback callback) {
+        AdhocTracker.fastGetFlag(30*1000,new OnAdHocReceivedData() {
+            @Override
+            public void onReceivedData(ExperimentFlags experimentFlags) {
+                callback.invoke(experimentFlags.getFlag(key, defaultValue));
+            }
+        });
+    }
+
+    @ReactMethod
+    public void getFlagFast(final String key, final double defaultValue, final Callback callback) {
+        AdhocTracker.fastGetFlag(30*1000,new OnAdHocReceivedData() {
+            @Override
+            public void onReceivedData(ExperimentFlags experimentFlags) {
+                callback.invoke(experimentFlags.getFlag(key, defaultValue));
+            }
+        });
+    }
 
     @ReactMethod
     public void getClientId(final Callback callback) {

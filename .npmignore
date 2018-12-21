@@ -1,0 +1,14 @@
+example/node_modules
+example/android/bin/
+example/android/tests/
+example/android/out/
+
+.DS_Store
+example/android/build/
+example/android/*/build/
+example/android/.gradle/
+example/android/.idea/
+example/android/*.iml
+example/android/*.apk/
+example/android/app/build
+example/ios/build/

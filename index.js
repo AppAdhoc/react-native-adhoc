@@ -72,6 +72,33 @@ export default class AdhocSDK {
   /**
    * Android only
    */
+  static fastGetNumberFlag(flagName, defaultNumberValue, callback) {
+    RNAdhoc.getFlagFast(flagName, defaultNumberValue, (value) => {
+        callback(value);
+    });
+  }
+  /**
+   * Android only
+   */
+  static fastGetBooleanFlag(flagName, defaultBooleanValue, callback) {
+    RNAdhoc.getFlagFast(flagName, defaultBooleanValue, (value) => {
+        callback(value);
+    });
+  }
+  
+  /**
+   * Android only
+   */
+  static fastGetStringFlag(flagName, defaultStringValue, callback) {
+    RNAdhoc.getFlagFast(flagName, defaultStringValue, (value) => {
+        callback(value);
+    });
+  }
+
+
+/**
+   * Android only
+   */
   static asynchronousGetNumberFlag(flagName, defaultNumberValue, callback) {
     RNAdhoc.asynchronousGetNumberFlag(flagName, defaultNumberValue, (value) => {
         callback(value);
@@ -95,6 +122,7 @@ export default class AdhocSDK {
     });
   }
 
+
   static track(key, value) {
     RNAdhoc.track(key, value)
   }
@@ -102,9 +130,14 @@ export default class AdhocSDK {
   static trackWithAttribute(key, value, attribute) {
     RNAdhoc.trackWithAttribute(key, value, attribute);
   }
-
-  static trackPageView() {
-    RNAdhoc.trackPageView();
+  /**
+   * Android only
+   */
+  static addUserAttribute(key,value) {
+    RNAdhoc.addUserAttribute(key,value);
+  }
+  static trackWithAttributie(key, value, attribute) {
+    RNAdhoc.trackWithAttribute(key, value, attribute);
   }
 
   static getCurrentExperiments(callback) {

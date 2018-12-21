@@ -54,14 +54,6 @@ import  AdhocSDK  from 'react-native-adhoc'
   ```
   AdhocSDK.trackWithAttribute('stat_nameXXX', 1, {name: 'Tom', age: 18}); // stat_nameXXX 是指标名称；1 是指标增加值， {name: 'Tom', age: 18} 是多维度统计需要的维度和值。
   ```
-
-- trackPageView()
-
-  统计页面 PV
-  
-  ```
-  AdhocSDK.trackPageView();
-  ```
  
 - getCurrentExperiments(Function)
 
@@ -87,7 +79,8 @@ import  AdhocSDK  from 'react-native-adhoc'
   异步方式从服务器直接获取Number类型试验变量的值
   
   ```
-  AdhocSDK.asynchronousGetNumberFlag('flagName', 1, flagValue => { // 1 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
+  AdhocSDK.asynchronousGetNumberFlag('flagName', 1, flagValue => { 
+    // 1 是试验变量的默认值
   
   });
   ```
@@ -96,7 +89,8 @@ import  AdhocSDK  from 'react-native-adhoc'
   异步方式从服务器直接获取字符串类型试验变量的值
   
   ```
-  AdhocSDK.asynchronousGetStringFlag('flagName', 'default_stringXXX', flagValue => { // default_stringXXX 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
+  AdhocSDK.asynchronousGetStringFlag('flagName', 'default_stringXXX', flagValue => { 
+    // default_stringXXX 是试验变量的默认值
   
   });
   ```
@@ -105,8 +99,52 @@ import  AdhocSDK  from 'react-native-adhoc'
   异步方式从服务器直接获取Bool类型试验变量的值
   
   ```
-  AdhocSDK.asynchronousGetBooleanFlag('flagName', false, flagValue => { // false 是试验变量的默认值，即从后端没有获取到变量值的情况下，这个方法应该返回什么值。
+  AdhocSDK.asynchronousGetBooleanFlag('flagName', false, flagValue => { 
+    // false 是试验变量的默认值
   
   });
+  ```
+-------------------------------------------
+
+- fastGetNumberFlag(String, Number, Function)
+
+  如果本地有缓存，则返回缓存数据，否则异步从服务端获取最新Number类型的试验数据
+  
+  ```
+  AdhocSDK.fastGetNumberFlag('flagName', 1, flagValue => { 
+    // 1 是试验变量的默认值
+  
+  });
+  ```
+- fastGetStringFlag(String, String, Function)
+
+  如果本地有缓存，则返回缓存数据，否则异步从服务端获取最新String类型的试验数据
+  
+  ```
+  AdhocSDK.fastGetStringFlag('flagName', 'default_stringXXX', flagValue => { 
+    // default_stringXXX 是试验变量的默认值
+  
+  });
+  ```
+- fastGetBooleanFlag(String, boolean, Function)
+
+  如果本地有缓存，则返回缓存数据，否则异步从服务端获取最新Boolean类型的试验数据
+  
+  ```
+  AdhocSDK.fastGetBooleanFlag('flagName', false, flagValue => { 
+    // false 是试验变量的默认值
+  
+  });
+  ```
+-----------------------------
+- addUserAttribute(String, String)
+
+  添加自定义用户标签,可以多次调用不会覆盖
+  注：使用此方法需要结合asyncGetFlag，否则可能会导致统计不准确。
+  使用方法：注意调用顺序，先调用setUserAttribute，然后调用asyncGetFlag方法
+  添加自定义标签也可以在初始化配置项目添加AdhocConfig.Builder.addCustom(String,String)
+  
+  ```
+  AdhocSDK.addUserAttribute('key', 'value')
   ```
   

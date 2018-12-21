@@ -32,11 +32,14 @@ export default class HomeScreen extends Component<Props> {
         <Button onPress={this._onPressGetCurrentExperiments} title="获取当前设备已加入的试验信息" />
         <Button onPress={this._onPresstest} title="异步从网络获取一次变量(boolean)" />
         <Button onPress={this._onPressButtonGetAsynStringFlag} title="异步从网络获取一次变量(string)"/>
-        <Button  onPress={this._onPressButtonGetAsynNumberFlag} title="异步从网络获取一次变量(number)"/>
+        <Button onPress={this._onPressButtonGetAsynNumberFlag} title="异步从网络获取一次变量(number)"/>
         <Button onPress={this._onPressButtonGetFlagString} title="获取变量值(string)"/>
         <Button onPress={this._onPressButtonGetFlagNumber} title="获取变量值(number)"/>
         <Button onPress={this._onPressButtonGetFlagBoolean} title="获取变量值(boolean)"/>
         <Button onPress={this._onPressButtonGetClientId} title="获取设备clientId" />
+        <Button onPress={this._onPressButtonAddUserAttribute} title="设置用户自定义标签" />
+        <Button onPress={this._onPressButtonFastGetStringFlag} title="使用fast接口(String)" />
+        
       </View>
       )
     } else {
@@ -60,9 +63,6 @@ export default class HomeScreen extends Component<Props> {
         <Button
           onPress={this.onButtonPressForTrackWithAttribute}
           title="Track With Attribute"/>
-        <Button
-          onPress={this.onButtonPressForTrackPageView}
-          title="Track PageView"/>
         <Button
           onPress={this.onButtonPressForCurrentExperiments}
           title="Experiments"/>
@@ -114,7 +114,17 @@ export default class HomeScreen extends Component<Props> {
       );
     });
   }
-
+  onButtonPressForFastFlag() {
+    AdhocSDK.fastGetFlag('flag_string','h', flagValue => {
+      Alert.alert(
+        'Adhoc Alert',
+        flagValue.toString(),
+        [
+          {Button: 'OK', onPress: () => console.log('OK Pressed!')},
+        ]
+      );
+    });
+  }
   onButtonPressForGetClientId() {
     AdhocSDK.getClientId((clientId) => {
       alert(clientId);
@@ -145,12 +155,12 @@ export default class HomeScreen extends Component<Props> {
     );
   }
 
-  onButtonPressForTrackPageView() {
-    AdhocSDK.trackPageView();
+  _onPressButtonAddUserAttribute() {
+    AdhocSDK.addUserAttribute('key','valueXXXX');
 
     Alert.alert(
-      'Adhoc Alert',
-      '已 Track Page View',
+      'Alert',
+      '已添加用户自定义标签',
       [
         {Button: 'OK', onPress: () => console.log('OK Pressed!')},
       ]
@@ -192,7 +202,10 @@ export default class HomeScreen extends Component<Props> {
     AdhocSDK.asynchronousGetStringFlag('flag_string','h',(callback) => {
       alert(callback);
     })}
-
+    _onPressButtonFastGetStringFlag() {
+    AdhocSDK.asynchronousGetStringFlag('flag_string','h',(callback) => {
+      alert(callback);
+    })}
     _onPressButtonGetFlagBoolean() {
     AdhocSDK.getBooleanFlag("flag_bool",false,callback =>{
       alert(callback);
