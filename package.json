@@ -47,7 +47,6 @@
       ]
     },
     "commands": {
-      "prelink": "node node_modules/react-native-adhoc/scripts/AdhocRNConfiguration",
       "postlink": "node node_modules/react-native-adhoc/scripts/postlink",
       "postunlink": "node node_modules/react-native-adhoc/scripts/postunlink"
     }
