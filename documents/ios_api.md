@@ -56,14 +56,6 @@ import  AdhocSDK  from 'react-native-adhoc'
   ```
   AdhocSDK.trackWithAttribute('stat_nameXXX', 1, {name: 'Tom', age: 18}); // stat_nameXXX 是指标名称；1 是指标增加值， {name: 'Tom', age: 18} 是多维度统计需要的维度和值。
   ```
-
-- trackPageView()
-
-  统计页面 PV
-  
-  ```
-  AdhocSDK.trackPageView();
-  ```
  
 - getCurrentExperiments(Function)
 

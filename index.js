@@ -47,7 +47,7 @@ export default class AdhocSDK {
    * iOS Only
    */
   static getFlagFast(flagName, defaultValue, callback) {
-    RNAdhoc.getFlagFast(flagName, defaultValue, 5000, (error, flagValue) => {
+    RNAdhoc.getFlagFast(flagName, defaultValue, 30000, (error, flagValue) => {
      if (error) {
        console.error(error);
      } else {
@@ -60,7 +60,7 @@ export default class AdhocSDK {
    * iOS only
    */
   static asynchronousGetFlag(flagName, defaultValue, callback) {
-    RNAdhoc.asynchronousGetFlag(flagName, defaultValue, 5000, (error, flagValue) => {
+    RNAdhoc.asynchronousGetFlag(flagName, defaultValue, 30000, (error, flagValue) => {
       if (error) {
         console.error(error);
       } else {
@@ -174,8 +174,8 @@ export default class AdhocSDK {
             console.error(error);
           } else {
             var functionInfo = {
-              functionName: args[1],
-              arguments: flagValue
+              flagName: args[0],
+              flagValue: flagValue
             };
             var jsonStr = JSON.stringify(functionInfo);
             webView.postMessage(jsonStr);

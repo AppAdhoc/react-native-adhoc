@@ -49,10 +49,6 @@ RCT_REMAP_METHOD(trackWithAttribute, track:(NSString *)stat_name value:(nonnull 
     [AdhocSDK track:stat_name value:stat_value attribute:stat_attribute];
 }
 
-RCT_EXPORT_METHOD(trackPageView) {
-    [AdhocSDK trackPageView];
-}
-
 RCT_EXPORT_METHOD(getCurrentExperiments:(RCTResponseSenderBlock)callback) {
     NSArray *currentExperimentsArray = [AdhocSDK getCurrentExperiments];
     callback(currentExperimentsArray);

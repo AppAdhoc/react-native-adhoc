@@ -41,7 +41,9 @@
     "ios": {
       "sharedLibraries": [
         "libsqlite3",
-        "libicucore"
+        "libicucore",
+        "CFNetwork",
+        "Security"
       ]
     },
     "commands": {
