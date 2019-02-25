@@ -11,3 +11,4 @@ build/
 *.apk/
 local.properties
 package-lock.json
+update.txt
