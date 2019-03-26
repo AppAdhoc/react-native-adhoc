@@ -12,3 +12,4 @@ build/
 local.properties
 package-lock.json
 update.txt
+example/node_modules

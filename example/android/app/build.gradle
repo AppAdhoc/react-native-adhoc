@@ -137,6 +137,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-adhoc')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation 'com.facebook.react:react-native:+'
