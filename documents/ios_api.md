@@ -78,21 +78,6 @@ import  AdhocSDK  from 'react-native-adhoc'
   
   });
   ```
-  
-- handleWebViewMessage(Object, String)
-
-  WebView 调用 flag 接口
-  
-  ```
-    <WebView
-            ref={'webview'}
-            source={require('./index.html')}
-            style={styles.container}
-            onMessage={(e) => {
-              AdhocSDK.handleWebViewMessage(this.refs.webview, e.nativeEvent.data);
-            }}
-          />
-  ```
 
 #### 从 Xcode 中移除 AdhocSDK 
 

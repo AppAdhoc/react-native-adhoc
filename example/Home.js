@@ -66,9 +66,6 @@ export default class HomeScreen extends Component<Props> {
         <Button
           onPress={this.onButtonPressForCurrentExperiments}
           title="Experiments"/>
-           <Button
-          onPress={()=> { navigate('WebView'); }}
-          title="WebView"/>
       </View>)
     }
 
