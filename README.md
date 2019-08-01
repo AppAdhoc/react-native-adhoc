@@ -17,7 +17,7 @@ npm install react-native-adhoc --save
 ### 链接原生库
 
 ```
-react-native link
+react-native link react-native-adhoc
 ```
 
 ### iOS SDK 初始化
