@@ -64,6 +64,15 @@ import  AdhocSDK  from 'react-native-adhoc'
   
   });
   ```
+- isJoinedExperimentByFlagName(String,Function)
+
+  返回设备是否(true或false)已经加入flagName所属试验
+  
+  ```
+  AdhocSDK.isJoinedExperimentByFlagName('FlagName',isJoined => {
+  
+  });
+  ```
   
 - getClientId(Function)
 
