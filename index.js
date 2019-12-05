@@ -85,7 +85,7 @@ export default class AdhocSDK {
         callback(value);
     });
   }
-  
+
   /**
    * Android only
    */
@@ -112,7 +112,7 @@ export default class AdhocSDK {
         callback(value);
     });
   }
-  
+
   /**
    * Android only
    */
@@ -146,6 +146,13 @@ export default class AdhocSDK {
     });
   }
 
+  static isJoinedExperimentByFlagName(key,callback) {
+    RNAdhoc.isJoinedExperimentByFlagName(key,isJoined => {
+        callback(isJoined);
+    });
+  }
+
+
   static getClientId(callback) {
     RNAdhoc.getClientId(clientId => {
         callback(clientId);
@@ -161,7 +168,7 @@ export default class AdhocSDK {
       var dataDic = JSON.parse(msg.slice(6));
       var functionName = dataDic.functionName;
       var args = dataDic.arguments;
-      
+
       if(functionName === 'track') {
         if(args.length === 3) {
           RNAdhoc.trackWithAttribute(args[0], args[1], args[2]);

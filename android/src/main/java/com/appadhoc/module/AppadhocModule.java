@@ -65,7 +65,11 @@ public class AppadhocModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void getCurrentExperiments(Callback callback) {
-        callback.invoke(null, AdhocTracker.getCurrentExperiments().toString());
+        callback.invoke(AdhocTracker.getCurrentExperiments().toString());
+    }
+    @ReactMethod
+    public void isJoinedExperimentByFlagName(String key,Callback callback) {
+        callback.invoke(AdhocTracker.isJoinedExperimentByFlagName(key));
     }
 
     @ReactMethod

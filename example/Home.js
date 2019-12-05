@@ -39,7 +39,8 @@ export default class HomeScreen extends Component<Props> {
         <Button onPress={this._onPressButtonGetClientId} title="获取设备clientId" />
         <Button onPress={this._onPressButtonAddUserAttribute} title="设置用户自定义标签" />
         <Button onPress={this._onPressButtonFastGetStringFlag} title="使用fast接口(String)" />
-        
+        <Button onPress={this._onPressButtonIsJoinedExperiment} title="使用isJoinedExperimentByFlagName(String)" />
+
       </View>
       )
     } else {
@@ -66,6 +67,7 @@ export default class HomeScreen extends Component<Props> {
         <Button
           onPress={this.onButtonPressForCurrentExperiments}
           title="Experiments"/>
+
       </View>)
     }
 
@@ -174,9 +176,9 @@ export default class HomeScreen extends Component<Props> {
       );
     });
   }
-  
+
   _onPressButton() {
-    AdhocSDK.track('flag_rn_click', 1);
+    AdhocSDK.track('isJoinedClick', 1);
     alert("track ok");
   }
 
@@ -217,17 +219,21 @@ export default class HomeScreen extends Component<Props> {
     AdhocSDK.getNumberFlag("flag_int",6,callback =>{
       alert(callback);
     })}
-  
+
   _onPressButtonGetClientId() {
     AdhocSDK.getClientId((clientId) => {
     alert(clientId);
   })}
 
-    _onPressGetCurrentExperiments() {
-    AdhocSDK.getCurrentExperiments((value) => {
-      alert(value);
-    })
-    }
+ _onPressButtonIsJoinedExperiment() {
+   AdhocSDK.isJoinedExperimentByFlagName("flag_int",(value) => {
+     alert(value);
+ })}
+
+ _onPressGetCurrentExperiments() {
+  AdhocSDK.getCurrentExperiments((value) => {
+    alert(value);
+  })}
 }
 
 const styles = StyleSheet.create({
