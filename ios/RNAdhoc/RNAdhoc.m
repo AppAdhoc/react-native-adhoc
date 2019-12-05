@@ -53,6 +53,11 @@ RCT_EXPORT_METHOD(getCurrentExperiments:(RCTResponseSenderBlock)callback) {
     NSArray *currentExperimentsArray = [AdhocSDK getCurrentExperiments];
     callback(currentExperimentsArray);
 }
+    
+RCT_EXPORT_METHOD(isJoinedExperimentByFlagName:(NSString *)flagName  completionHandler:(RCTResponseSenderBlock)callback) {
+    BOOL isJoined = [AdhocSDK isJoinedExperimentByFlagName:flagName];
+    callback(@[@(isJoined)]);
+}
 
 RCT_EXPORT_METHOD(getClientId:(RCTResponseSenderBlock)callback) {
     NSString *clientID = [AdhocSDK getClientID];

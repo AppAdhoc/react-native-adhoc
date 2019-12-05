@@ -9,11 +9,17 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <AdhocSDK/AdhocSDK.h>
 
 @implementation AppDelegate
+  
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  AdhocSDKConfig *config = [AdhocSDKConfig defaultConfig];
+  config.appKey = @"xxxxx";
+  config.enableDebugAssist = YES;
+  config.reportImmediatelyEnabled = YES;
+  [AdhocSDK startWithConfigure:config options:launchOptions];
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];

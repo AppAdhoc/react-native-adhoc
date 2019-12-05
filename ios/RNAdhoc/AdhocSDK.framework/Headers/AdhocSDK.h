@@ -5,7 +5,7 @@
 //  Created by AppAdhoc on 16/10/26.
 //  Copyright © 2016年 AppAdhoc. All rights reserved.
 //
-//  当前 SDK 版本：5.1.2
+//  当前 SDK 版本：5.1.4
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -100,6 +100,14 @@ NS_CLASS_AVAILABLE_IOS(8_0) @interface AdhocSDK : NSObject
  *  @return 试验名数组
  */
 + (NSArray *)getCurrentExperiments;
+
+/**
+ 根据 flag 名称获取该 flag 名称所对应的试验是否加入了试验
+ 
+ @param flagName flag 名称
+ @return 是否加入了试验
+ */
++ (BOOL)isJoinedExperimentByFlagName:(NSString *)flagName;
 
 /**
  *  获取 ClientID

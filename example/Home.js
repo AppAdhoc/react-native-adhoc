@@ -64,6 +64,9 @@ export default class HomeScreen extends Component<Props> {
         <Button
           onPress={this.onButtonPressForTrackWithAttribute}
           title="Track With Attribute"/>
+          <Button
+            onPress={this._onPressButtonIsJoinedExperiment}
+            title="isJoinedExperimentByFlagName"/>
         <Button
           onPress={this.onButtonPressForCurrentExperiments}
           title="Experiments"/>
@@ -79,7 +82,7 @@ export default class HomeScreen extends Component<Props> {
   }
 
   onButtonPressForGetFlag() {
-    AdhocSDK.getFlag('flag_string','h', flagValue => {
+    AdhocSDK.getFlag('F_1','h', flagValue => {
       Alert.alert(
         'Adhoc Alert',
         flagValue.toString(),
@@ -226,7 +229,7 @@ export default class HomeScreen extends Component<Props> {
   })}
 
  _onPressButtonIsJoinedExperiment() {
-   AdhocSDK.isJoinedExperimentByFlagName("flag_int",(value) => {
+   AdhocSDK.isJoinedExperimentByFlagName("F_1",(value) => {
      alert(value);
  })}
 
