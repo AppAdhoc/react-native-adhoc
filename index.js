@@ -152,43 +152,9 @@ export default class AdhocSDK {
     });
   }
 
-
   static getClientId(callback) {
     RNAdhoc.getClientId(clientId => {
         callback(clientId);
     });
-  }
-
-/**
-   * iOS only
-   */
-  static handleWebViewMessage(webView, msg) {
-    var isHaveAdhocMsg = msg.indexOf("adhoc");
-    if (isHaveAdhocMsg == 0) { // 以 adhoc 开头
-      var dataDic = JSON.parse(msg.slice(6));
-      var functionName = dataDic.functionName;
-      var args = dataDic.arguments;
-
-      if(functionName === 'track') {
-        if(args.length === 3) {
-          RNAdhoc.trackWithAttribute(args[0], args[1], args[2]);
-        } else {
-          RNAdhoc.track(args[0], args[1]);
-        }
-      } else if (functionName === 'getFlag') {
-        RNAdhoc.getFlag(args[0], args[1], (error, flagValue) => {
-          if (error) {
-            console.error(error);
-          } else {
-            var functionInfo = {
-              flagName: args[0],
-              flagValue: flagValue
-            };
-            var jsonStr = JSON.stringify(functionInfo);
-            webView.postMessage(jsonStr);
-          }
-        });
-      }
-    }
   }
 }
